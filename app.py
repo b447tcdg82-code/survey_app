@@ -254,7 +254,15 @@ if submitted:
 
 st.divider()
 
-if st.checkbox("📈 Показать аналитику"):
+if st.checkbox("📈 Показать аналитику (только для преподавателя)"):
+    password = st.text_input("Введите пароль для доступа", type="password")
+    correct = st.secrets.get("ANALYTICS_PASSWORD", "admin123")
+    if password != correct:
+        if password:
+            st.error("Неверный пароль.")
+        st.stop()
+    st.success("✅ Доступ открыт.")
+    if True:
     docs = db.collection("responses").stream()
     data = [doc.to_dict() for doc in docs]
 
