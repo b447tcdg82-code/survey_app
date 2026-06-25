@@ -81,17 +81,42 @@ st.markdown("""
         transform: translateY(-2px) !important;
     }
 
-    /* Sliders */
-    .stSlider [data-baseweb="slider"] div[role="slider"] {
+    /* Sliders — track and thumb */
+    .stSlider [data-baseweb="slider"] [role="slider"] {
         background-color: #a855f7 !important;
-        box-shadow: 0 0 10px rgba(168, 85, 247, 0.8) !important;
+        box-shadow: 0 0 10px rgba(168, 85, 247, 0.9) !important;
+        border: none !important;
     }
 
-    .stSlider [data-baseweb="slider"] div {
-        background-color: rgba(168, 85, 247, 0.3) !important;
+    /* Active fill of slider */
+    .stSlider [data-baseweb="slider"] [data-testid="stSliderTrackActive"] {
+        background: linear-gradient(90deg, #7c3aed, #a855f7) !important;
     }
 
-    /* Radio buttons */
+    /* Inactive track */
+    .stSlider [data-baseweb="slider"] [data-testid="stSliderTrack"] {
+        background-color: rgba(168, 85, 247, 0.15) !important;
+    }
+
+    /* Remove red tint on slider */
+    .stSlider * { accent-color: #a855f7 !important; }
+
+    /* Radio buttons — selected dot */
+    .stRadio [data-baseweb="radio"] [data-checked="true"] div,
+    .stRadio input[type="radio"]:checked + div {
+        background-color: #a855f7 !important;
+        border-color: #a855f7 !important;
+    }
+
+    /* Radio outer ring */
+    .stRadio [data-baseweb="radio"] div div {
+        border-color: rgba(168, 85, 247, 0.5) !important;
+    }
+
+    input[type="radio"]:checked {
+        accent-color: #a855f7 !important;
+    }
+
     .stRadio label {
         color: #cbd5e1 !important;
     }
