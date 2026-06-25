@@ -262,7 +262,6 @@ if st.checkbox("📈 Показать аналитику (только для п
             st.error("Неверный пароль.")
         st.stop()
     st.success("✅ Доступ открыт.")
-    if True:
     docs = db.collection("responses").stream()
     data = [doc.to_dict() for doc in docs]
 
